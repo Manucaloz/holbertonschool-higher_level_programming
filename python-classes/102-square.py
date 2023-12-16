@@ -1,59 +1,86 @@
 #!/usr/bin/python3
+# -----------------------------------------------------------
+# -----------------------------------------------------------
+"""Square Class.
 
-class Square():
-    """Defines a square."""
+This module contains a class that defines a square.
+
+Usage Example:
+
+    Square = __import__('102-square').Square
+
+    s_5 = Square(5)
+    s_6 = Square(6)
+    if s_5 < s_6:
+        print("Square 5 < Square 6")
+    if s_5 <= s_6:
+        print("Square 5 <= Square 6")
+"""
+
+
+class Square:
+    """Defines the blueprint of a square.
+
+    Attribute:
+        size (int): An integer representing the object size.
+    """
 
     def __init__(self, size=0):
-        """Sets the necessary attributes for the Square object.
-
-        Args:
-            size (int): the size of one edge of the square.
-        """
-        self.size = size
-
-    def __eq__(self, other):
-        """Sets the compare equality behavior of the Square object.
-
-        Args:
-            other (Square): the Square object to compare with.
-        """
-        if type(other) is Square:
-            return self.area() == other.area()
-
-    def __lt__(self, other):
-        """Sets the compare less than behavior of the Square object.
-
-        Args:
-            other (Square): the Square object to compare with.
-        """
-        if type(other) is Square:
-            return self.area() < other.area()
-
-    def __le__(self, other):
-        """Sets the compare less equal than behavior of the Square object.
-
-        Args:
-            other (Square): the Square object to compare with.
-        """
-        if type(other) is Square:
-            return self.area() <= other.area()
+        """An object constructor method."""
+        self.__size = size
 
     @property
     def size(self):
-        """Get or set the size of the square."""
+        """Gets the size private attribute value.
+
+        Returns:
+            The size private attribute
+        """
         return self.__size
 
     @size.setter
     def size(self, value):
-        if type(value) is int:
-            if value >= 0:
-                self.__size = value
-            else:
-                raise ValueError("size must be >= 0")
-        else:
+        """Sets the size private attribute value.
+
+        Validates the assignment of the size private attribute.
+
+        Arg:
+            value: the value to be set
+        """
+        if not isinstance(value, int):
             raise TypeError("size must be an integer")
+        if value < 0:
+            raise ValueError("size must be >= 0")
+        self.__size = value
 
     def area(self):
-        """Returns the current square area."""
+        """A public object method.
 
-        return self.__size ** 2
+        Returns:
+            The current square area
+        """
+        return self.__size**2
+
+    def __eq__(self, o):
+        """Defines the == comparison"""
+        return self.__size == o.__size
+
+    def __ne__(self, o):
+        """Defines the != comparison"""
+        return self.__size != o.__size
+
+    def __gt__(self, o):
+        """Defined the > comparison"""
+        return self.__size > o.__size
+
+    def __ge__(self, o):
+        """Defined the >= comparison"""
+        return self.__size >= o.__size
+
+    def __lt__(self, o):
+        """Defined the < comparison"""
+        return self.__size < o.__size
+
+    def __le__(self, o):
+        """Defined the <= comparison"""
+        return self.__size <= o.__size
