@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 # -----------------------------------------------------------
-# (C) 2022 Igbinijesu Samuel, Lagos, Nigeria
-# email igbinijesusamuel@gmail.com
 # -----------------------------------------------------------
 """Square Class.
 
