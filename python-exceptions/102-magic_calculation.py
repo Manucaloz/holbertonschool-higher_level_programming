@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-import dis
 
+import dis
 
 def magic_calculation(a, b):
     result = 0
